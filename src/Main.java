@@ -1,5 +1,6 @@
 import config.FactoryConfiguration;
 import entity.Customer;
+import entity.CustomerFullName;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.HibernateException;
@@ -12,30 +13,31 @@ public class Main {
     public static void main(String[] args) {
         factoryConfiguration = FactoryConfiguration.getInstance();
 
-        Customer customer1 = new Customer(1, "Dilini", "dilini@gmail.com", "07012412031");
-        Customer customer2 = new Customer(2, "Kamal", "kamal@gmail.com", "0754120123");
+        CustomerFullName customerFullName = new CustomerFullName("John" , "Smith");
+
+        Customer customer1 = new Customer(1, customerFullName, "john@gmail.com","2154364" , "fvdbdfgb" , "07012412031");
+       /* Customer customer2 = new Customer(2, "Kamal", "kamal@gmail.com", "0754120123");
         Customer customer3 = new Customer(3, "Sunil", "sunil@gmail.com", "0765412301");
         Customer customer4 = new Customer(4, "Pawani", "pawani@gmail.com", "0712563245");
         Customer customer5 = new Customer(5, "Umair", "umair@gmail.com", "070552412362");
-
+*/
         /*saveCustomer(customer1);
         saveCustomer(customer2);
         saveCustomer(customer3);
         saveCustomer(customer4);
         saveCustomer(customer5);*/
 
-        System.out.println("Customer : " + getCustomerById(customer4.getId()));
+        System.out.println("Customer : " + getCustomerById(customer1.getId()));
 
         //deleteCustomer(customer5.getId());
 
-        Customer customer = new Customer(4, "Malith", "malith@gmail.com", "070552412362");
+        Customer customer = new Customer(1, customerFullName, "john@gmail.com","54712365" , "cx csfv" , "07012412031");
         updateCustomer(customer);
 
         List<Customer> allCustomers = getAllCustomers();
         for (Customer customers : allCustomers) {
             System.out.println(customers);
         }
-
 
     }
 
